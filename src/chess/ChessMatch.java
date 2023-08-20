@@ -47,6 +47,11 @@ public class ChessMatch {
 			throw new ChessException("The chosen piece cant move to target position");
 		}
 	}
+	public boolean[][] possibleMoves(ChessPosition sourcepos) {
+		Position position = sourcepos.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
 	
 	private Piece makeMove(Position sourcePosition, Position targetPosition) {
 		Piece p = board.removePiece(sourcePosition);
